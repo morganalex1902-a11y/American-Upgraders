@@ -117,11 +117,11 @@ export function Header() {
                 {/* Mega Menu Dropdown */}
                 {item.key && (
                   <div
-                    className="absolute left-0 top-full invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 z-50"
+                    className="absolute left-0 top-full invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 z-50 pointer-events-none group-hover:pointer-events-auto"
                     onMouseEnter={() => setOpenMegaMenu(item.key!)}
                     onMouseLeave={() => setOpenMegaMenu(null)}
                   >
-                    <div className="mt-0 bg-white rounded-lg shadow-lg border border-border p-6 sm:p-8 animate-in fade-in slide-in-from-top-2">
+                    <div className="mt-2 bg-white rounded-lg shadow-lg border border-border p-6 sm:p-8">
                       <div className="flex flex-col sm:flex-row gap-6 sm:gap-12">
                         {/* Left Column - Services */}
                         <div className="min-w-0 flex-1 sm:flex-[0_0_60%]">
