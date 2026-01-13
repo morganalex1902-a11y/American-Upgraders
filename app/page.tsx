@@ -143,21 +143,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Services Grid */}
-        <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
-          <h2 className="text-3xl font-bold text-foreground text-center mb-12">Browse by Service</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {SERVICES.map((service) => (
-              <Link key={service.id} href={`/search?service=${service.name.toLowerCase()}`}>
-                <Card className="p-6 border border-border hover:border-primary hover:shadow-lg transition cursor-pointer h-full flex flex-col items-center justify-center text-center">
-                  <div className="text-4xl mb-3">{service.icon}</div>
-                  <h3 className="font-semibold text-foreground">{service.name}</h3>
-                </Card>
-              </Link>
-            ))}
-          </div>
-        </section>
-
         {/* Popular Services */}
         <section className="bg-secondary/30 py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
