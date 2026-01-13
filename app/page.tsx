@@ -77,35 +77,50 @@ export default function Home() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-5xl md:text-6xl font-bold text-foreground leading-tight mb-6 text-balance">
-                Find Expert Services
-                <span className="text-primary"> When You Need Them</span>
+        <section className="relative w-full h-96 md:h-[500px] bg-cover bg-center bg-no-repeat flex items-center justify-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&q=80')" }}>
+          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="relative z-10 w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="max-w-2xl">
+              <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-8 text-balance">
+                Find top-rated pros in your area.
               </h1>
-              <p className="text-xl text-muted-foreground mb-8 text-balance">
-                Connect with verified service providers for all your home and business needs. Fast, reliable, and
-                trusted.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center bg-white rounded-full p-2 shadow-lg">
+                <input
+                  type="text"
+                  placeholder="What can we help you with?"
+                  className="flex-1 bg-transparent px-4 py-3 text-foreground placeholder:text-muted-foreground outline-none"
+                />
+                <div className="flex items-center gap-2 px-2">
+                  <span className="text-muted-foreground">📍</span>
+                  <input
+                    type="text"
+                    placeholder="20004"
+                    className="w-20 bg-transparent py-3 text-foreground placeholder:text-muted-foreground outline-none"
+                  />
+                </div>
                 <Link href="/search">
-                  <Button size="lg" className="w-full sm:w-auto">
-                    Find Services <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <Link href="/provider/join">
-                  <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent">
-                    Become a Provider
-                  </Button>
+                  <button className="bg-primary hover:bg-primary/90 text-white rounded-full p-3 flex-shrink-0 transition">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                  </button>
                 </Link>
               </div>
             </div>
-            <div className="hidden md:block">
-              <div className="relative h-96 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl flex items-center justify-center">
-                <div className="text-6xl">🏗️</div>
-              </div>
-            </div>
+          </div>
+        </section>
+
+        {/* Services Quick Links */}
+        <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {SERVICES.map((service) => (
+              <Link key={service.id} href={`/search?service=${service.name.toLowerCase()}`}>
+                <div className="flex flex-col items-center justify-center text-center p-4 rounded-lg hover:bg-secondary/50 transition cursor-pointer">
+                  <div className="text-3xl mb-2">{service.icon}</div>
+                  <p className="text-sm font-medium text-foreground">{service.name}</p>
+                </div>
+              </Link>
+            ))}
           </div>
         </section>
 
