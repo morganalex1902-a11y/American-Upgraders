@@ -115,17 +115,13 @@ export function Header() {
                 </button>
 
                 {/* Mega Menu Dropdown */}
-                {item.key && (
+                {item.key && openMegaMenu === item.key && (
                   <div
-                    className={`absolute left-0 top-[calc(100%+8px)] z-50 transition-all duration-300 ${
-                      openMegaMenu === item.key
-                        ? "opacity-100 visible pointer-events-auto"
-                        : "opacity-0 invisible pointer-events-none"
-                    } will-change-opacity`}
+                    className="absolute left-0 top-full z-50 mt-2"
                     onMouseEnter={() => setOpenMegaMenu(item.key!)}
                     onMouseLeave={() => setOpenMegaMenu(null)}
                   >
-                    <div className="min-w-max bg-white rounded-lg shadow-lg border border-border p-6 sm:p-8">
+                    <div className="min-w-max bg-white rounded-lg shadow-lg border border-border p-6 sm:p-8 animate-in fade-in slide-in-from-top-2">
                       <div className="flex flex-col gap-8 sm:gap-12 sm:flex-row">
                         {/* Left Column - Services */}
                         <div className="w-80">
