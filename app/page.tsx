@@ -1,5 +1,8 @@
+"use client"
+
 import { Header } from "@/components/header"
 import Link from "next/link"
+import { useEffect, useState } from "react"
 
 const SERVICES = [
   { id: 1, name: "Plumbing", icon: "🔧" },
@@ -12,14 +15,31 @@ const SERVICES = [
   { id: 8, name: "Cleaning", icon: "🧹" },
 ]
 
+const HERO_IMAGES = [
+  "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&q=80",
+  "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80",
+  "https://images.unsplash.com/photo-1517502884422-41eae2f342fa?w=1200&q=80",
+  "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1200&q=80",
+]
+
 export default function Home() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % HERO_IMAGES.length)
+    }, 3500)
+
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative w-full h-96 md:h-[500px] bg-cover bg-center bg-no-repeat flex items-center justify-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&q=80')" }}>
+        <section className="relative w-full h-96 md:h-[500px] bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden" style={{ backgroundImage: `url('${HERO_IMAGES[currentImageIndex]}')`, transition: "background-image 0.8s ease-in-out" }}>
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="relative z-10 w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl">
