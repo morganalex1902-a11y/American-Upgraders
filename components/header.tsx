@@ -106,7 +106,7 @@ export function Header() {
                 <button
                   className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition flex items-center gap-1 relative"
                   onMouseEnter={() => item.key && setOpenMegaMenu(item.key)}
-                  onMouseLeave={() => setOpenMegaMenu(null)}
+                  onMouseLeave={() => item.key && setOpenMegaMenu(null)}
                 >
                   {item.label}
                   {item.key && <ChevronDown className="h-4 w-4 transition group-hover:rotate-180" />}
