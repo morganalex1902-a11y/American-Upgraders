@@ -106,7 +106,7 @@ export function Header() {
                 key={item.key || "advice"}
                 className="relative"
                 onMouseOver={() => item.key && setOpenMegaMenu(item.key)}
-                onMouseOut={() => !item.key && setOpenMegaMenu(null)}
+                onMouseOut={() => setOpenMegaMenu(null)}
               >
                 <button
                   className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition flex items-center gap-1 relative cursor-pointer"
