@@ -121,7 +121,7 @@ export function Header() {
                       openMegaMenu === item.key
                         ? "opacity-100 visible pointer-events-auto"
                         : "opacity-0 invisible pointer-events-none"
-                    }`}
+                    } will-change-opacity`}
                     onMouseEnter={() => setOpenMegaMenu(item.key!)}
                     onMouseLeave={() => setOpenMegaMenu(null)}
                   >
