@@ -7,7 +7,7 @@ import { useState } from "react"
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [openMegaMenu, setOpenMegaMenu] = useState<string | null>(null)
+  const [openMegaMenu, setOpenMegaMenu] = useState<string | null>("interior")
 
   const megaMenus = {
     interior: {
