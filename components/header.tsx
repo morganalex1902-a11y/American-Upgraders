@@ -93,10 +93,10 @@ export function Header() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm">
-              A
+            <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold text-xs">
+              AU
             </div>
-            <span className="hidden text-lg font-bold text-foreground sm:inline">Angi</span>
+            <span className="hidden text-lg font-bold text-foreground sm:inline">American Upgraders</span>
           </Link>
 
           {/* Desktop Navigation with Mega Menus */}
