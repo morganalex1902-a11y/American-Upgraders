@@ -124,63 +124,155 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Features Section */}
-        <section className="bg-secondary/30 py-16">
+        {/* Most In-Demand Services */}
+        <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+          <h2 className="text-3xl font-bold text-foreground mb-2">
+            Most in-demand home services in <span className="text-primary">20004</span>
+          </h2>
+          <p className="text-muted-foreground mb-8">Don't miss your chance to book a pro</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { name: "Cleaning & Maid Services", icon: "🧹", interested: 1240 },
+              { name: "Painting", icon: "🎨", interested: 892 },
+              { name: "Handyman Service", icon: "🔨", interested: 1567 },
+              { name: "Plumbing", icon: "🔧", interested: 2134 },
+              { name: "Addition and Remodeling", icon: "🏗️", interested: 654 },
+              { name: "Roofing", icon: "🏠", interested: 543 },
+              { name: "Window Service", icon: "🪟", interested: 432 },
+              { name: "Tree Service", icon: "🌳", interested: 789 },
+            ].map((service) => (
+              <div key={service.name} className="border border-border rounded-lg p-5 hover:shadow-md transition cursor-pointer bg-white">
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">{service.icon}</span>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-foreground text-sm">{service.name}</h3>
+                    <p className="text-xs text-muted-foreground mt-1">📈 {service.interested} homeowners interested</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Newsletter Signup */}
+        <section className="w-full py-16" style={{ backgroundColor: "#FFF8F0" }}>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-foreground text-center mb-12">Why Choose ServiceHub?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {FEATURES.map((feature) => {
-                const Icon = feature.icon
-                return (
-                  <Card key={feature.title} className="p-6 border border-border">
-                    <Icon className="h-10 w-10 text-primary mb-4" />
-                    <h3 className="font-semibold text-foreground mb-2">{feature.title}</h3>
-                    <p className="text-sm text-muted-foreground">{feature.description}</p>
-                  </Card>
-                )
-              })}
+            <div className="max-w-3xl mx-auto text-center mb-8">
+              <h2 className="text-3xl font-bold text-foreground mb-3">Knowledge is priceless - so our cost guides are free.</h2>
+              <p className="text-muted-foreground">Sign up to get free project cost info in your inbox.</p>
+            </div>
+            <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+              <input
+                type="email"
+                placeholder="Email address"
+                className="flex-1 px-4 py-3 border border-border rounded-lg bg-white outline-none focus:border-primary transition"
+              />
+              <input
+                type="text"
+                placeholder="ZIP code"
+                className="w-full sm:w-32 px-4 py-3 border border-border rounded-lg bg-white outline-none focus:border-primary transition"
+              />
+              <button className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium transition">
+                Sign me up
+              </button>
             </div>
           </div>
         </section>
 
-        {/* Popular Services */}
-        <section className="bg-secondary/30 py-20">
+        {/* Popular Home Projects */}
+        <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+          <div className="flex items-center justify-between mb-12">
+            <h2 className="text-3xl font-bold text-foreground">Popular home projects</h2>
+            <button className="text-primary hover:underline font-medium text-sm">Browse pro directory →</button>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { title: "Handyperson for Small Projects", rating: 4.6, reviews: "599k+", price: "$158" },
+              { title: "One-time Cleaning Service", rating: 4.5, reviews: "314k+", price: "$102" },
+              { title: "Air Conditioning Service & Repair", rating: 4.7, reviews: "306k+", price: "$350" },
+            ].map((project, idx) => (
+              <div key={idx} className="bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition cursor-pointer transform hover:scale-102">
+                <div className="h-48 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-5xl">
+                  {["🔧", "🧹", "❄️"][idx]}
+                </div>
+                <div className="p-5">
+                  <h3 className="font-bold text-lg text-foreground mb-3">{project.title}</h3>
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="flex gap-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <span key={i} className="text-primary text-sm">★</span>
+                      ))}
+                    </div>
+                    <span className="text-sm font-semibold text-foreground">{project.rating}</span>
+                    <span className="text-xs text-muted-foreground">({project.reviews})</span>
+                  </div>
+                  <p className="text-muted-foreground text-sm">from <span className="font-semibold text-foreground">{project.price}</span></p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-muted-foreground mt-6 text-center">Price shown is the national median price for typical jobs. Actual price may vary depending on size, complexity and location.</p>
+        </section>
+
+        {/* Keep Home in Tip-Top Shape */}
+        <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+          <h2 className="text-3xl font-bold text-foreground mb-12">Keep your home in tip-top shape</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { title: "Faucet & Plumbing Repair Services", rating: 4.8, reviews: "245k+", price: "$95" },
+              { title: "Roof Installation & Repair", rating: 4.7, reviews: "189k+", price: "$2,500" },
+              { title: "Bathroom Remodel", rating: 4.9, reviews: "412k+", price: "$8,000" },
+            ].map((project, idx) => (
+              <div key={idx} className="bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition cursor-pointer transform hover:scale-102">
+                <div className="h-48 bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center text-5xl">
+                  {["🚰", "🏠", "🛁"][idx]}
+                </div>
+                <div className="p-5">
+                  <h3 className="font-bold text-lg text-foreground mb-3">{project.title}</h3>
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="flex gap-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <span key={i} className="text-primary text-sm">★</span>
+                      ))}
+                    </div>
+                    <span className="text-sm font-semibold text-foreground">{project.rating}</span>
+                    <span className="text-xs text-muted-foreground">({project.reviews})</span>
+                  </div>
+                  <p className="text-muted-foreground text-sm">from <span className="font-semibold text-foreground">{project.price}</span></p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Popular Cost Guides */}
+        <section className="w-full py-16" style={{ backgroundColor: "#E6F7F0" }}>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-foreground text-center mb-12">Popular Services</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {POPULAR_SERVICES.map((service) => (
-                <Card key={service.title} className="p-6 border border-border hover:shadow-lg transition">
-                  <h3 className="font-semibold text-foreground mb-2">{service.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">{service.description}</p>
-                  <div className="mb-4">
-                    <p className="font-semibold text-primary">{service.price}</p>
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-3xl font-bold text-foreground">Popular cost guides</h2>
+              <a href="#" className="text-primary hover:underline text-sm font-medium">See all articles →</a>
+            </div>
+            <p className="text-muted-foreground mb-12">From average costs to expert advice, get all the answers you need to get your job done.</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { title: "How Much Does a New Furnace Cost? [2025 Data]", author: "Sarah Chen", date: "Jan 10, 2025" },
+                { title: "How Much Does Roof Snow Removal Cost? [2025 Data]", author: "Mike Johnson", date: "Jan 8, 2025" },
+                { title: "How Much Does Insulation Installation Cost? [2025 Data]", author: "Emma Davis", date: "Jan 5, 2025" },
+                { title: "Kitchen Remodeling Cost Guide [Updated 2025]", author: "James Wilson", date: "Jan 3, 2025" },
+                { title: "Bathroom Renovation Costs & ROI", author: "Lisa Anderson", date: "Dec 29, 2024" },
+                { title: "Foundation Repair Cost Guide", author: "Robert Martinez", date: "Dec 26, 2024" },
+              ].map((article, idx) => (
+                <div key={idx} className="bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition cursor-pointer">
+                  <div className="h-40 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center text-4xl">
+                    {["🔥", "❄️", "🧊", "🛁", "🚿", "🏗️"][idx]}
                   </div>
-                  <div className="flex items-center gap-1 mb-4">
-                    <Star className="h-4 w-4 fill-accent text-accent" />
-                    <span className="text-sm font-semibold text-foreground">{service.rating}</span>
-                    <span className="text-xs text-muted-foreground">({service.reviews} reviews)</span>
+                  <div className="p-5">
+                    <p className="text-xs text-muted-foreground uppercase font-medium mb-2">{article.author} • {article.date}</p>
+                    <h3 className="font-bold text-foreground line-clamp-2">{article.title}</h3>
                   </div>
-                  <Button variant="outline" size="sm" className="w-full bg-transparent">
-                    View Providers
-                  </Button>
-                </Card>
+                </div>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
-          <div className="bg-gradient-to-r from-primary/5 to-accent/5 border border-primary/20 rounded-2xl p-12 text-center">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Ready to Get Started?</h2>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Join thousands of satisfied customers who have found their perfect service provider on ServiceHub.
-            </p>
-            <Link href="/search">
-              <Button size="lg">
-                Browse Services Now <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
           </div>
         </section>
       </main>
