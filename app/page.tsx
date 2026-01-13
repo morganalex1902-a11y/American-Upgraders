@@ -277,7 +277,101 @@ export default function Home() {
         </section>
       </main>
 
-      <Footer />
+      {/* Comprehensive Footer */}
+      <footer className="bg-gray-100 text-gray-700 pt-16 pb-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+            {/* Column 1: Newsletter */}
+            <div>
+              <h3 className="font-semibold text-foreground mb-4">Knowledge is priceless</h3>
+              <p className="text-sm text-muted-foreground mb-4">Get free project cost info in your inbox.</p>
+              <div className="flex flex-col gap-2">
+                <input type="email" placeholder="Email" className="px-3 py-2 border border-border rounded text-sm bg-white" />
+                <input type="text" placeholder="ZIP code" className="px-3 py-2 border border-border rounded text-sm bg-white" />
+                <button className="bg-primary text-white px-3 py-2 rounded text-sm font-medium hover:bg-primary/90">Sign me up</button>
+              </div>
+            </div>
+
+            {/* Column 2: Homeowner Services */}
+            <div>
+              <h3 className="font-semibold text-foreground mb-4">Homeowner services</h3>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:text-primary transition">Find local businesses</a></li>
+                <li><a href="#" className="hover:text-primary transition">Services near me</a></li>
+              </ul>
+            </div>
+
+            {/* Column 3: For Service Pros */}
+            <div>
+              <h3 className="font-semibold text-foreground mb-4">For service pros</h3>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:text-primary transition">Register your business</a></li>
+                <li><a href="#" className="hover:text-primary transition">Business center</a></li>
+              </ul>
+            </div>
+
+            {/* Column 4: Resources */}
+            <div>
+              <h3 className="font-semibold text-foreground mb-4">Resources</h3>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:text-primary transition">Solution center</a></li>
+                <li><a href="#" className="hover:text-primary transition">Project cost center</a></li>
+                <li><a href="#" className="hover:text-primary transition">FAQs</a></li>
+              </ul>
+            </div>
+
+            {/* Column 5: About Us */}
+            <div>
+              <h3 className="font-semibold text-foreground mb-4">About us</h3>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:text-primary transition">How it works</a></li>
+                <li><a href="#" className="hover:text-primary transition">Who we are</a></li>
+                <li><a href="#" className="hover:text-primary transition">Careers</a></li>
+                <li><a href="#" className="hover:text-primary transition">Press</a></li>
+                <li><a href="#" className="hover:text-primary transition">Contact us</a></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* App Download Section */}
+          <div className="border-t border-gray-300 pt-8 mb-8">
+            <h3 className="font-semibold text-foreground mb-4">Download the app</h3>
+            <div className="flex gap-3">
+              <button className="flex items-center gap-2 px-4 py-2 border border-gray-400 rounded text-sm hover:bg-gray-200 transition">
+                <span>📱</span>
+                <span>App Store</span>
+              </button>
+              <button className="flex items-center gap-2 px-4 py-2 border border-gray-400 rounded text-sm hover:bg-gray-200 transition">
+                <span>🔵</span>
+                <span>Google Play</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Bottom Footer Bar */}
+          <div className="border-t border-gray-300 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="font-bold text-primary text-xl">Angi</div>
+            <div className="flex gap-4 text-xs">
+              <a href="#" className="hover:text-primary transition">Terms of Use</a>
+              <a href="#" className="hover:text-primary transition">Privacy Policy</a>
+              <a href="#" className="hover:text-primary transition">Accessibility</a>
+              <a href="#" className="hover:text-primary transition">Do Not Sell</a>
+            </div>
+            <div className="flex gap-3 text-gray-500">
+              <a href="#" className="hover:text-primary transition">𝕏</a>
+              <a href="#" className="hover:text-primary transition">f</a>
+              <a href="#" className="hover:text-primary transition">📌</a>
+              <a href="#" className="hover:text-primary transition">▶️</a>
+              <a href="#" className="hover:text-primary transition">📷</a>
+            </div>
+          </div>
+
+          {/* Copyright */}
+          <div className="text-center text-xs text-muted-foreground mt-6">
+            <p>&copy; 2025 Angi. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
