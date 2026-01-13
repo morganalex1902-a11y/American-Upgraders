@@ -102,15 +102,14 @@ export function Header() {
           {/* Desktop Navigation with Mega Menus */}
           <nav className="hidden gap-1 md:flex relative overflow-visible">
             {navItems.map((item) => (
-              <div key={item.key || "advice"} className="relative group">
+              <div
+                key={item.key || "advice"}
+                className="relative group"
+                onMouseEnter={() => item.key && setOpenMegaMenu(item.key)}
+                onMouseLeave={() => setOpenMegaMenu(null)}
+              >
                 <button
                   className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition flex items-center gap-1 relative cursor-pointer"
-                  onMouseEnter={() => {
-                    if (item.key) setOpenMegaMenu(item.key)
-                  }}
-                  onMouseLeave={() => {
-                    setOpenMegaMenu(null)
-                  }}
                 >
                   {item.label}
                   {item.key && <ChevronDown className="h-4 w-4 transition group-hover:rotate-180" />}
@@ -120,11 +119,7 @@ export function Header() {
 
                 {/* Mega Menu Dropdown */}
                 {item.key && openMegaMenu === item.key && (
-                  <div
-                    className="absolute left-0 top-full z-50 mt-2"
-                    onMouseEnter={() => setOpenMegaMenu(item.key!)}
-                    onMouseLeave={() => setOpenMegaMenu(null)}
-                  >
+                  <div className="absolute left-0 top-full z-50 mt-2">
                     <div className="min-w-max bg-white rounded-lg shadow-lg border border-border p-6 sm:p-8 animate-in fade-in slide-in-from-top-2">
                       <div className="flex flex-col gap-8 sm:gap-12 sm:flex-row">
                         {/* Left Column - Services */}
