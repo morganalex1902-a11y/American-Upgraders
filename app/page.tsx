@@ -1,5 +1,8 @@
+"use client"
+
 import { Header } from "@/components/header"
 import Link from "next/link"
+import { useEffect, useState } from "react"
 
 const SERVICES = [
   { id: 1, name: "Plumbing", icon: "🔧" },
@@ -12,37 +15,55 @@ const SERVICES = [
   { id: 8, name: "Cleaning", icon: "🧹" },
 ]
 
+const HERO_IMAGES = [
+  "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&q=80",
+  "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80",
+  "https://images.unsplash.com/photo-1517502884422-41eae2f342fa?w=1200&q=80",
+  "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1200&q=80",
+]
+
 export default function Home() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % HERO_IMAGES.length)
+    }, 3500)
+
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative w-full h-96 md:h-[500px] bg-cover bg-center bg-no-repeat flex items-center justify-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&q=80')" }}>
+        <section className="relative w-full h-96 md:h-[500px] bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden" style={{ backgroundImage: `url('${HERO_IMAGES[currentImageIndex]}')`, transition: "background-image 0.8s ease-in-out" }}>
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="relative z-10 w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl">
               <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-8 text-balance">
                 Find top-rated pros in your area.
               </h1>
-              <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center bg-white rounded-full p-2 shadow-lg">
+              <div className="w-full flex flex-col gap-3 bg-white rounded-lg sm:rounded-full p-3 sm:p-2 shadow-lg sm:flex-row sm:items-center">
                 <input
                   type="text"
                   placeholder="What can we help you with?"
-                  className="flex-1 bg-transparent px-4 py-3 text-foreground placeholder:text-muted-foreground outline-none"
+                  className="flex-1 bg-transparent px-3 sm:px-4 py-2 sm:py-3 text-foreground placeholder:text-muted-foreground outline-none text-sm sm:text-base"
                 />
-                <div className="flex items-center gap-2 px-2">
-                  <span className="text-muted-foreground">📍</span>
+                <div className="flex items-center gap-2 px-3 sm:px-2">
+                  <span className="text-muted-foreground hidden sm:inline">📍</span>
                   <input
                     type="text"
-                    placeholder="20004"
-                    className="w-20 bg-transparent py-3 text-foreground placeholder:text-muted-foreground outline-none"
+                    placeholder="ZIP code"
+                    className="flex-1 sm:w-20 sm:flex-none bg-transparent py-2 sm:py-3 text-foreground placeholder:text-muted-foreground outline-none text-sm sm:text-base"
                   />
                 </div>
-                <Link href="/search">
-                  <button className="bg-primary hover:bg-primary/90 text-white rounded-full p-3 flex-shrink-0 transition">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <Link href="/search" className="w-full sm:w-auto">
+                  <button className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white rounded-lg sm:rounded-full p-3 sm:p-3 flex-shrink-0 transition font-medium">
+                    <span className="sm:hidden">Search</span>
+                    <svg className="w-5 h-5 hidden sm:inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                   </button>

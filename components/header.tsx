@@ -89,24 +89,27 @@ export function Header() {
   ]
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-card shadow-sm">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 border-b border-border bg-card shadow-sm overflow-visible">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 overflow-visible">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm">
-              A
+            <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold text-xs">
+              AU
             </div>
-            <span className="hidden text-lg font-bold text-foreground sm:inline">Angi</span>
+            <span className="hidden text-lg font-bold text-foreground sm:inline">American Upgraders</span>
           </Link>
 
           {/* Desktop Navigation with Mega Menus */}
-          <nav className="hidden gap-1 md:flex relative">
+          <nav className="hidden gap-1 md:flex relative overflow-visible">
             {navItems.map((item) => (
-              <div key={item.key || "advice"} className="relative group">
+              <div
+                key={item.key || "advice"}
+                className="relative"
+                onMouseOver={() => item.key && setOpenMegaMenu(item.key)}
+                onMouseOut={() => setOpenMegaMenu(null)}
+              >
                 <button
-                  className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition flex items-center gap-1 relative"
-                  onMouseEnter={() => item.key && setOpenMegaMenu(item.key)}
-                  onMouseLeave={() => setOpenMegaMenu(null)}
+                  className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition flex items-center gap-1 relative cursor-pointer"
                 >
                   {item.label}
                   {item.key && <ChevronDown className="h-4 w-4 transition group-hover:rotate-180" />}
@@ -115,15 +118,11 @@ export function Header() {
                 </button>
 
                 {/* Mega Menu Dropdown */}
-                {item.key && (
-                  <div
-                    className="absolute left-0 top-full invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 w-max"
-                    onMouseEnter={() => setOpenMegaMenu(item.key!)}
-                    onMouseLeave={() => setOpenMegaMenu(null)}
-                  >
-                    <div className="mt-0 bg-white rounded-lg shadow-lg border border-border p-8 animate-in fade-in slide-in-from-top-2">
-                      <div className="flex gap-12">
-                        {/* Left Column - Services (60%) */}
+                {item.key && openMegaMenu === item.key && (
+                  <div className="absolute left-0 top-full z-50 mt-2">
+                    <div className="min-w-max bg-white rounded-lg shadow-lg border border-border p-6 sm:p-8 animate-in fade-in slide-in-from-top-2">
+                      <div className="flex flex-col gap-8 sm:gap-12 sm:flex-row">
+                        {/* Left Column - Services */}
                         <div className="w-80">
                           <h3 className="font-semibold text-foreground mb-4 text-sm">Find a pro</h3>
                           <ul className="space-y-3">
@@ -146,7 +145,7 @@ export function Header() {
                           </Link>
                         </div>
 
-                        {/* Right Column - Articles (40%) */}
+                        {/* Right Column - Articles */}
                         <div className="w-64">
                           <h3 className="font-semibold text-foreground mb-4 text-sm">Research & plan</h3>
                           <ul className="space-y-4">
