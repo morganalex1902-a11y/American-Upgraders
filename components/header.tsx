@@ -117,14 +117,14 @@ export function Header() {
                 {/* Mega Menu Dropdown */}
                 {item.key && (
                   <div
-                    className="absolute left-0 top-full invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 w-max"
+                    className="absolute left-0 top-full invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 z-50"
                     onMouseEnter={() => setOpenMegaMenu(item.key!)}
                     onMouseLeave={() => setOpenMegaMenu(null)}
                   >
-                    <div className="mt-0 bg-white rounded-lg shadow-lg border border-border p-8 animate-in fade-in slide-in-from-top-2">
-                      <div className="flex gap-12">
-                        {/* Left Column - Services (60%) */}
-                        <div className="w-80">
+                    <div className="mt-0 bg-white rounded-lg shadow-lg border border-border p-6 sm:p-8 animate-in fade-in slide-in-from-top-2">
+                      <div className="flex flex-col sm:flex-row gap-6 sm:gap-12">
+                        {/* Left Column - Services */}
+                        <div className="min-w-0 flex-1 sm:flex-[0_0_60%]">
                           <h3 className="font-semibold text-foreground mb-4 text-sm">Find a pro</h3>
                           <ul className="space-y-3">
                             {megaMenus[item.key as keyof typeof megaMenus]?.services.map((service, idx) => (
@@ -146,8 +146,8 @@ export function Header() {
                           </Link>
                         </div>
 
-                        {/* Right Column - Articles (40%) */}
-                        <div className="w-64">
+                        {/* Right Column - Articles */}
+                        <div className="min-w-0 flex-1 sm:flex-[0_0_40%]">
                           <h3 className="font-semibold text-foreground mb-4 text-sm">Research & plan</h3>
                           <ul className="space-y-4">
                             {megaMenus[item.key as keyof typeof megaMenus]?.articles.map((article, idx) => (
