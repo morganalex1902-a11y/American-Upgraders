@@ -117,7 +117,7 @@ export function Header() {
                 {/* Mega Menu Dropdown */}
                 {item.key && (
                   <div
-                    className="absolute left-0 top-full invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 z-50 pointer-events-none group-hover:pointer-events-auto"
+                    className="absolute left-0 top-full opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 pointer-events-none group-hover:pointer-events-auto"
                     onMouseEnter={() => setOpenMegaMenu(item.key!)}
                     onMouseLeave={() => setOpenMegaMenu(null)}
                   >
