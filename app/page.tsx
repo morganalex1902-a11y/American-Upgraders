@@ -1,73 +1,15 @@
 import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { ArrowRight, Star, Shield, Clock, Users } from "lucide-react"
 import Link from "next/link"
 
 const SERVICES = [
-  { id: 1, name: "Plumbing", icon: "🔧", color: "from-blue-500 to-blue-600" },
-  { id: 2, name: "Electrical", icon: "⚡", color: "from-yellow-500 to-yellow-600" },
-  { id: 3, name: "HVAC", icon: "❄️", color: "from-cyan-500 to-cyan-600" },
-  { id: 4, name: "Roofing", icon: "🏠", color: "from-orange-500 to-orange-600" },
-  { id: 5, name: "Carpentry", icon: "🪵", color: "from-amber-600 to-amber-700" },
-  { id: 6, name: "Painting", icon: "🎨", color: "from-pink-500 to-pink-600" },
-  { id: 7, name: "Landscaping", icon: "🌿", color: "from-green-500 to-green-600" },
-  { id: 8, name: "Cleaning", icon: "🧹", color: "from-purple-500 to-purple-600" },
-]
-
-const FEATURES = [
-  {
-    icon: Shield,
-    title: "Verified Providers",
-    description: "All providers are thoroughly vetted and insured for your peace of mind",
-  },
-  {
-    icon: Clock,
-    title: "Fast Booking",
-    description: "Get matched with qualified providers and book services in minutes",
-  },
-  {
-    icon: Star,
-    title: "Trusted Reviews",
-    description: "Read verified reviews from real customers before booking",
-  },
-  {
-    icon: Users,
-    title: "24/7 Support",
-    description: "Our customer support team is always here to help",
-  },
-]
-
-const POPULAR_SERVICES = [
-  {
-    title: "Plumbing Repair",
-    description: "Fix leaks, clogs, and other plumbing issues",
-    price: "Starting at $99",
-    rating: 4.9,
-    reviews: 2341,
-  },
-  {
-    title: "Electrical Work",
-    description: "Installations, repairs, and safety inspections",
-    price: "Starting at $75",
-    rating: 4.8,
-    reviews: 1892,
-  },
-  {
-    title: "Home Cleaning",
-    description: "Professional cleaning for homes and offices",
-    price: "Starting at $120",
-    rating: 4.9,
-    reviews: 3102,
-  },
-  {
-    title: "Roof Inspection",
-    description: "Comprehensive roof evaluations and repairs",
-    price: "Starting at $199",
-    rating: 4.7,
-    reviews: 1245,
-  },
+  { id: 1, name: "Plumbing", icon: "🔧" },
+  { id: 2, name: "Electrical", icon: "⚡" },
+  { id: 3, name: "HVAC", icon: "❄️" },
+  { id: 4, name: "Roofing", icon: "🏠" },
+  { id: 5, name: "Carpentry", icon: "🪵" },
+  { id: 6, name: "Painting", icon: "🎨" },
+  { id: 7, name: "Landscaping", icon: "🌿" },
+  { id: 8, name: "Cleaning", icon: "🧹" },
 ]
 
 export default function Home() {
