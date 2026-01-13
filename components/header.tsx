@@ -104,9 +104,13 @@ export function Header() {
             {navItems.map((item) => (
               <div key={item.key || "advice"} className="relative group">
                 <button
-                  className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition flex items-center gap-1 relative"
-                  onMouseEnter={() => item.key && setOpenMegaMenu(item.key)}
-                  onMouseLeave={() => item.key && setOpenMegaMenu(null)}
+                  className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition flex items-center gap-1 relative cursor-pointer"
+                  onMouseEnter={() => {
+                    if (item.key) setOpenMegaMenu(item.key)
+                  }}
+                  onMouseLeave={() => {
+                    setOpenMegaMenu(null)
+                  }}
                 >
                   {item.label}
                   {item.key && <ChevronDown className="h-4 w-4 transition group-hover:rotate-180" />}
