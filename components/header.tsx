@@ -100,7 +100,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation with Mega Menus */}
-          <nav className="hidden gap-1 md:flex relative">
+          <nav className="hidden gap-1 md:flex relative overflow-visible">
             {navItems.map((item) => (
               <div key={item.key || "advice"} className="relative group">
                 <button
