@@ -122,9 +122,9 @@ export function Header() {
                     onMouseLeave={() => setOpenMegaMenu(null)}
                   >
                     <div className="mt-2 min-w-max bg-white rounded-lg shadow-lg border border-border p-6 sm:p-8">
-                      <div className="flex flex-col sm:flex-row gap-6 sm:gap-12">
+                      <div className="flex flex-col gap-8 sm:gap-12 sm:flex-row">
                         {/* Left Column - Services */}
-                        <div className="min-w-0 flex-1 sm:flex-[0_0_60%]">
+                        <div className="w-80">
                           <h3 className="font-semibold text-foreground mb-4 text-sm">Find a pro</h3>
                           <ul className="space-y-3">
                             {megaMenus[item.key as keyof typeof megaMenus]?.services.map((service, idx) => (
@@ -147,7 +147,7 @@ export function Header() {
                         </div>
 
                         {/* Right Column - Articles */}
-                        <div className="min-w-0 flex-1 sm:flex-[0_0_40%]">
+                        <div className="w-64">
                           <h3 className="font-semibold text-foreground mb-4 text-sm">Research & plan</h3>
                           <ul className="space-y-4">
                             {megaMenus[item.key as keyof typeof megaMenus]?.articles.map((article, idx) => (
