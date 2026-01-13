@@ -46,23 +46,24 @@ export default function Home() {
               <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-8 text-balance">
                 Find top-rated pros in your area.
               </h1>
-              <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center bg-white rounded-full p-2 shadow-lg">
+              <div className="w-full flex flex-col gap-3 bg-white rounded-lg sm:rounded-full p-3 sm:p-2 shadow-lg sm:flex-row sm:items-center">
                 <input
                   type="text"
                   placeholder="What can we help you with?"
-                  className="flex-1 bg-transparent px-4 py-3 text-foreground placeholder:text-muted-foreground outline-none"
+                  className="flex-1 bg-transparent px-3 sm:px-4 py-2 sm:py-3 text-foreground placeholder:text-muted-foreground outline-none text-sm sm:text-base"
                 />
-                <div className="flex items-center gap-2 px-2">
-                  <span className="text-muted-foreground">📍</span>
+                <div className="flex items-center gap-2 px-3 sm:px-2">
+                  <span className="text-muted-foreground hidden sm:inline">📍</span>
                   <input
                     type="text"
-                    placeholder="20004"
-                    className="w-20 bg-transparent py-3 text-foreground placeholder:text-muted-foreground outline-none"
+                    placeholder="ZIP code"
+                    className="flex-1 sm:w-20 sm:flex-none bg-transparent py-2 sm:py-3 text-foreground placeholder:text-muted-foreground outline-none text-sm sm:text-base"
                   />
                 </div>
-                <Link href="/search">
-                  <button className="bg-primary hover:bg-primary/90 text-white rounded-full p-3 flex-shrink-0 transition">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <Link href="/search" className="w-full sm:w-auto">
+                  <button className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white rounded-lg sm:rounded-full p-3 sm:p-3 flex-shrink-0 transition font-medium">
+                    <span className="sm:hidden">Search</span>
+                    <svg className="w-5 h-5 hidden sm:inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                   </button>
